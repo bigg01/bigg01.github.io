@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+<meta content="mkdocs-1.6.1, mkdocs-terminal-4.6.0" name="generator"/>
+<meta content="Personal blog about cloud, container, linux, programming and homelab" name="description"/>
+<meta content="BigG01" name="author"/>
+<link href="../img/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../img/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="../img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../img/favicon.ico" rel="shortcut icon" sizes="48x48" type="image/png"/>
+<link href="../img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<title>CrewAI - containerize.ch</title>
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet"/>
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet"/>
+<link href="../css/normalize.css" rel="stylesheet"/>
+<link href="../css/terminal.css" rel="stylesheet"/>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme.tile_grid.css" rel="stylesheet"/>
+<link href="../css/theme.footer.css" rel="stylesheet"/>
+<!-- dark_green color palette -->
+<link href="../css/palettes/dark_green.css" rel="stylesheet"/>
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+<!-- link underline override -->
+<style>
+#terminal-mkdocs-main-content a:not(.headerlink){
+    text-decoration: none;
+}
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.min.css" rel="stylesheet"/>
+<link href="../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../termynal.css" rel="stylesheet"/>
+<!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet"/>
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script defer="" src="../js/jquery/jquery-1.10.1.min.js"></script>
+<script defer="" src="../js/bootstrap/bootstrap.min.js"></script>
+<script defer="" src="../js/mkdocs/base.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+<script src="../javascripts/highlight-init.js"></script>
+<script src="../search/main.js"></script>
+<script src="../termynal.js"></script>
+</head>
+<body class="terminal"><div class="container">
+<div class="terminal-nav">
+<header class="terminal-logo">
+<div class="logo terminal-prompt" id="mkdocs-terminal-site-name"><a class="no-style" href="/">containerize.ch</a></div>
+</header>
+<nav class="terminal-menu">
+<ul typeof="BreadcrumbList" vocab="https://schema.org/">
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href=".." property="item" typeof="WebPage">
+<span property="name">Home</span>
+</a>
+<meta content="0" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../container.md" property="item" typeof="WebPage">
+<span property="name">Container</span>
+</a>
+<meta content="1" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../home-lab.md" property="item" typeof="WebPage">
+<span property="name">Homelab</span>
+</a>
+<meta content="2" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../about.md" property="item" typeof="WebPage">
+<span property="name">About</span>
+</a>
+<meta content="3" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" href="../example.md" property="item" typeof="WebPage">
+<span property="name">Example</span>
+</a>
+<meta content="4" property="position"/>
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a class="menu-item" data-target="#mkdocs_search_modal" data-toggle="modal" href="#" property="item" typeof="SearchAction">
+<i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+</a>
+<meta content="5" property="position"/>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class="container">
+<div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+<ul class="terminal-mkdocs-side-nav-items">
+<li class="terminal-mkdocs-side-nav-li">
+<a class="terminal-mkdocs-side-nav-item" href="..">Home</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<span class="terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Cloud</span>
+<ul class="terminal-mkdocs-side-nav-li-ul">
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../cloud.md">Index</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../azure.md">Azure</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../gcp.md">GCP</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../aws.md">AWS</a>
+</li>
+</ul>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<a class="terminal-mkdocs-side-nav-item" href="../container.md">Container</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<span class="terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Kubernetes</span>
+<ul class="terminal-mkdocs-side-nav-li-ul">
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../openshift.md">OpenShift</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../aks.md">AKS</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../k3s.md">K3s</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../python-kubernetes/">python</a>
+</li>
+</ul>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<span class="terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Linux</span>
+<ul class="terminal-mkdocs-side-nav-li-ul">
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../linux.md">Index</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../gnome-shell.md">Gnome-Shell</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../wsl.md">WSL</a>
+</li>
+</ul>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<span class="terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Programming</span>
+<ul class="terminal-mkdocs-side-nav-li-ul">
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../programming.md">Index</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../python.md">Python</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<a class="terminal-mkdocs-side-nav-item" href="../golang.md">Golang</a>
+</li>
+</ul>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<span class="terminal-mkdocs-side-nav-item--active terminal-mkdocs-side-nav-section-no-index">AI</span>
+<ul class="terminal-mkdocs-side-nav-li-ul">
+<li class="terminal-mkdocs-side-nav-li-ul-li">
+<span class="terminal-mkdocs-side-nav-item--active">CrewAI</span>
+</li>
+</ul>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<a class="terminal-mkdocs-side-nav-item" href="../home-lab.md">Homelab</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<a class="terminal-mkdocs-side-nav-item" href="../about.md">About</a>
+</li>
+<li class="terminal-mkdocs-side-nav-li">
+<a class="terminal-mkdocs-side-nav-item" href="../example.md">Example</a>
+</li>
+</ul>
+</nav><hr/>
+<nav>
+<ul>
+<li><a href="#experiment-crew-ai">Experiment Crew AI</a></li>
+</ul>
+</nav>
+</aside>
+<main id="terminal-mkdocs-main-content">
+<section id="mkdocs-terminal-content">
+<h1 id="experiment-crew-ai">Experiment Crew AI<a class="headerlink" href="#experiment-crew-ai" title="Anchor link to this section for reference">#</a></h1>
+<p>GIT Repo: <a href="https://github.com/bigg01/crew-ollama-agent">crew-ollama-agent</a></p>
+<p>Create a CloudArchitect Agent and DevOps engineer
+A Cloud Architect and a DevOPs engineer finding solutions on running kubernetes in the cloud.</p>
+<p>--&gt; <code>Ipython Notebook</code> or python <code>mycrew.py</code></p>
+<div class="mermaid">graph TD;
+    ACrew --&gt; CloudArchitect;
+    ACrew--&gt;DevOpsEngineer;
+    CloudArchitect --&gt; Task1 --&gt; SearchDuckDuckgo;
+    DevOpsEngineer--&gt;Task2;
+    DevOpsEngineer &lt;--&gt; CloudArchitect;
+    Task1 --&gt; Result;
+    Task2 --&gt; Result;
+</div>
+<p><img alt="" src="gen_/images/example1.png"/></p>
+</section>
+</main>
+</div>
+<hr/><footer>
+<div class="terminal-mkdocs-footer-grid">
+<div id="terminal-mkdocs-footer-copyright-info">
+<p class="text-center text-muted">© 2024 BigG01 - containerize.ch</p>
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+<div id="terminal-mkdocs-footer-prev-next">
+<nav class="btn-group">
+<a href="../python-kubernetes/" title="python">Previous</a>
+</nav>
+</div>
+</div>
+</footer>
+</div>
+<div aria-labelledby="searchModalLabel" aria-modal="true" class="modal" id="mkdocs_search_modal" role="alertdialog" tabindex="-1">
+<div class="modal-dialog modal-lg" role="search">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="searchModalLabel">Search</h5>
+<button class="close btn btn-default btn-ghost" data-dismiss="modal" type="button"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<p id="searchInputLabel">Type to start searching</p>
+<form>
+<div class="form-group">
+<input aria-labelledby="searchInputLabel" class="form-control" id="mkdocs-search-query" placeholder="" title="Please enter search terms here" type="search"/>
+</div>
+</form>
+<div data-no-results-text="No document matches found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
+</html>

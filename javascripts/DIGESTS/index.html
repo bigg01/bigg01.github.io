@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.6.0">
+    
+    <meta name="description" content="Personal blog about cloud, container, linux, programming and homelab"> 
+
+<meta name="author" content="BigG01"> 
+<link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>DIGESTS - containerize.ch</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- dark_green color palette -->
+<link href="../../css/palettes/dark_green.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+<!-- link underline override -->
+<style>
+#terminal-mkdocs-main-content a:not(.headerlink){
+    text-decoration: none;
+}
+</style>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" rel="stylesheet"> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.min.css" rel="stylesheet"> 
+<link href="../../stylesheets/extra.css" rel="stylesheet"> 
+<link href="../../termynal.css" rel="stylesheet">  
+
+
+
+
+<!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+
+<script src="../highlight-init.js"></script>
+
+<script src="../../search/main.js"></script>
+
+<script src="../../termynal.js"></script>
+
+
+
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">containerize.ch</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../.." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../container.md" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Container</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../home-lab.md" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Homelab</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../about.md" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">About</span>
+                    </a>
+                    <meta property="position" content="3">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../example.md" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Example</span>
+                    </a>
+                    <meta property="position" content="4">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="5">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Cloud</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../cloud.md">Index</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../azure.md">Azure</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../gcp.md">GCP</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../aws.md">AWS</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../container.md">Container</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Kubernetes</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../openshift.md">OpenShift</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../aks.md">AKS</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../k3s.md">K3s</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../python-kubernetes/">python</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Linux</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../linux.md">Index</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../gnome-shell.md">Gnome-Shell</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../wsl.md">WSL</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">Programming</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../programming.md">Index</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../python.md">Python</a>
+        
+    
+    </li>
+            
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../golang.md">Golang</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+        
+        
+
+        
+            
+    
+        
+        
+            
+            
+            <span class="
+        
+    
+
+    terminal-mkdocs-side-nav-item terminal-mkdocs-side-nav-section-no-index">AI</span>
+        
+    
+    
+        
+      
+        
+            <ul class="terminal-mkdocs-side-nav-li-ul">
+        
+            
+            
+
+             
+                <li class="terminal-mkdocs-side-nav-li-ul-li">
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../crewai/">CrewAI</a>
+        
+    
+    </li>
+            
+            
+    </ul>
+        
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../home-lab.md">Homelab</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../about.md">About</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../example.md">Example</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#subresource-integrity">Subresource Integrity</a></li>
+        <li><a href="#digests">Digests</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+<section id="mkdocs-terminal-content">
+    <h2 id="subresource-integrity">Subresource Integrity<a class="headerlink" href="#subresource-integrity" title="Anchor link to this section for reference">#</a></h2>
+<p>If you are loading Highlight.js via CDN you may wish to use <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">Subresource Integrity</a> to guarantee that you are using a legimitate build of the library.</p>
+<p>To do this you simply need to add the <code>integrity</code> attribute for each JavaScript file you download via CDN. These digests are used by the browser to confirm the files downloaded have not been modified.</p>
+<pre><code class="language-html">&lt;script
+  src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js&quot;
+  integrity=&quot;sha384-pGqTJHE/m20W4oDrfxTVzOutpMhjK3uP/0lReY0Jq/KInpuJSXUnk4WAYbciCLqT&quot;&gt;&lt;/script&gt;
+&lt;!-- including any other grammars you might need to load --&gt;
+&lt;script
+  src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/go.min.js&quot;
+  integrity=&quot;sha384-Mtb4EH3R9NMDME1sPQALOYR8KGqwrXAtmc6XGxDd0XaXB23irPKsuET0JjZt5utI&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>The full list of digests for every file can be found below.</p>
+<h3 id="digests">Digests<a class="headerlink" href="#digests" title="Anchor link to this section for reference">#</a></h3>
+<pre><code>sha384-wLveqgFaOQ9PzFODfn1IxFZ54KAIj/Opx/7gUnbN9eOC3XsWaK7zEAnX0c79VQEz /es/languages/awk.js
+sha384-ZtSXWAZLFp62aXWYyynhvbh2tt+/B8/dq0PoZd8lNMmhGj9kec6R9TAkI2SPFKAx /es/languages/awk.min.js
+sha384-no5/zgQGupzPFGWV8VpJzfQau5/GI2v5b7I45l6nKc8gMOxzBHfgyxNdjQEnmW94 /es/languages/bash.js
+sha384-u2nRnIxVxHkjnpxFScw/XgxNVuLz4dXXiT56xbp+Kk2b8AuStNgggHNpM9HO569A /es/languages/bash.min.js
+sha384-+9dzNYaLHp3OPspFCOJGrEwfiOV3yqeD/atUDYVt9zKUJ8IW2QxffCT2LfmGfwfW /es/languages/css.js
+sha384-G44u1/pUATC8754FIKYqkCxCl9AQYnspnFxzuR3RB1YVnTvqOEofqvZNQMUWcY/1 /es/languages/css.min.js
+sha384-aZt7VNjEA1w4GeGPtZOPocoO/e6oIc9bMjNlN0GMXRkOoTMaEM2FCq4B6GkHANht /es/languages/diff.js
+sha384-3J9ZKxCAysZ+DowS+TRZQFLDNVJwRq0pxq9t/JYsuFRmBSwgvJrbRDH4Av46yJft /es/languages/diff.min.js
+sha384-dpaRAfrfqLJ/m4qzPviZ8UztzpU27eoBSH+8GjP1nkccMBZ6x9EnnhvlNYMDz0P2 /es/languages/django.js
+sha384-xmWxMjSXleWbbNXqoQdpI8OkRJnRmiuJ8cmkovyFJSZxyjycv8DA4XuENvWPDLDk /es/languages/django.min.js
+sha384-conFwWhJOaJ8yLyZJUeX6IlE3YGpdoxazLFVV//QB5E+ASXMVyFnQE1V6SfgMzEq /es/languages/dockerfile.js
+sha384-Dw9HMdbM7eZULiZ40cTZJ0NU88GUU5VQ22H+PVZ0IzxPGdnPPqKdsg4Uk3D2wbCB /es/languages/dockerfile.min.js
+sha384-78pjAzkv5820KAdnWu9XFmkf7iBGzLpkNx/bpU5dB7GaDrvRMjstFafbatIHjzFj /es/languages/dust.js
+sha384-7baMO61bDaNT3XOhMkeU9+88gLiAq763qqHp0olY9dgfDtIxisZo3LnoRrtLRsWT /es/languages/dust.min.js
+sha384-+kBglEeWcSwdonwqsD/TpIjXwMn5FIeukuWgfAWv+QC1NDsZGeANBqgeir0aOENB /es/languages/erb.js
+sha384-jKl1B10yci152fjeFFWOiIxAnyuqjj+GrabCB2d6Dq0jHIYs0kqsCF31KINUC9i5 /es/languages/erb.min.js
+sha384-U0cmcZmeG0JVcA3HKR6r7Sio0x8FtcXR7eviBCcgniMwCc+DMiV6IQPm7bFn6BPh /es/languages/go.js
+sha384-5Mzx2XTmXU2XQ0AiQg/4HA9SbBDrPySZgpsOfSfflGdzC4bIpCjWSxIP62fOIFkO /es/languages/go.min.js
+sha384-st2jI7gdDuiIl9dQHBL5JYS7h83PuoMOFcWCAVm5JaRNJyZkoJsVePJK4PJ2SjrD /es/languages/haml.js
+sha384-W3AwKM0k7ufGY1rXi/NC/GCvcGw1BQfGeDa7qXqV2IQbLoxnIQ0JojJtNxl33ybu /es/languages/haml.min.js
+sha384-WA27nyafv5r7bEE03RHQyJ+V3X67dECBLXOy5MTKxPuBnbWuUBYq+Ke7qv5DkFPr /es/languages/handlebars.js
+sha384-npJ2g3mwXMh9Py849SyQMEdEzTUaC5NsUuYXZ+C936ZpalKkv8V/XgbWzs1n2tzJ /es/languages/handlebars.min.js
+sha384-ZCfS+s/zxY7O2bm2KoVJo1wUrLEpJDHZAi/LJAdJF5XjnfSWICkg6wHd2SEJGpyR /es/languages/java.js
+sha384-716dHwZ7zbZcnEwTe7DLxlm5tH3Iyl8vSW5a2kYPgusEdp5k3A3jeZt0Ck+CjYE0 /es/languages/java.min.js
+sha384-oQpcUGMBf+VDTHOLQ1uhPp1FgNBo0OZc9gbXGuVFwAogHlkh/Iw6cvKKgcgCQkmV /es/languages/javascript.js
+sha384-3T8DJ91yCa1//uY9h8Bo4QLrgEtbz4ILN2x9kSM4QWX9/1kKu6UXC3RAbVQV85UQ /es/languages/javascript.min.js
+sha384-R87hRh4kF8+iz2sB6FvLrfR0XZBohjFXeJKIXld1Eji2UVi+M2+OIgJKma/9Ko6u /es/languages/json.js
+sha384-QFDPNpqtrgZCuAr70TZJFM4VCY+xNnyGKwJw2EsWIBJOVcWAns9PHcLzecyDVv+x /es/languages/json.min.js
+sha384-EOlA7X6MKRjIpGYx09ecO5jAMoNmfB791nh3OQg5iEZgNkJ7i4fDZUY1JHyyt38Z /es/languages/leaf.js
+sha384-zSVAwJVXLuIs4ZlAQiIC+Cd4cEMWt6w02VRWDhzVKPHMdmzSHKb6xTRgQcuvXc6X /es/languages/leaf.min.js
+sha384-OJrXTVCemUa68axskWVxZHXuDfyPWWFK0X2cJsPaMBt6jGY1HxnBZJVPEHTqou4H /es/languages/lua.js
+sha384-cjlU8DPjZ3XY/dLzIx+CaoB2jzKXf43s2KSU2rZQGmxwR1d7k9p+SFt1IsNkFnnV /es/languages/lua.min.js
+sha384-npg+R4K6p4Q5dEzYDKy3gZ+l4mGV8hDMErOZdSSvqLxED30Fhmgb54WD4wkeY5yh /es/languages/makefile.js
+sha384-Ev1PV0+HiSwEbi0IfJYmpMoxv3E0sWhAALg1frIiitM9zh2BVDe871H9Z/RGXqFM /es/languages/makefile.min.js
+sha384-JkFMmKMbHcXjdfHauRnREGG6i73GyMisdqNivBm4Z9m2Oc82YIu5jQtIjLa508e8 /es/languages/markdown.js
+sha384-65/lNNIY+ayhHTtFznjnyZ5w2NDdZIpSEcqjss/p4ex5JamZ46FdYwDDf6IBLCmE /es/languages/markdown.min.js
+sha384-wHi9YWuBlMmp6CUES5L68AMz2JrahIIwLinNiyoYpYMTbvOs6HMSxcSmkJk6jslj /es/languages/mojolicious.js
+sha384-riyMTSZ7x2BtezT0NuSUcLWe5L4yYLXp2QWu4NWdo2kZOs8Y3iBTcd3M469B49Qh /es/languages/mojolicious.min.js
+sha384-q/J52OGh4UHE/U8R1OxK2eeCwgojYh7pllFkG8nHZlhjcu//R92hgbDVLLFvLY1H /es/languages/parser3.js
+sha384-gXlSFjAQdfSvHNnvsQzb6gF3Tg2XcgxEoaoJNt3eQM/zYp7bbECyesWhIDCim3Ro /es/languages/parser3.min.js
+sha384-e+d8RFZbtc5Pmt3xfX9uuElm63v5qOj7T5hAkkFbnYc1wEk7wCLlzOsm66MCf5Uk /es/languages/python.js
+sha384-CPHh+9FxkWF3OtMZdTj5oQN1Qti0p4/5XBABz/JdgssOKHmfAOFz6Gu4tsG6MQiH /es/languages/python.min.js
+sha384-Blm/RpTi15HpdenfAja/zwDDJ6bBmIoAsFgHcNpw4u+DqKFZEpB67DIa2A1NXtZf /es/languages/ruby.js
+sha384-INdPgGNAH51T3uWXoaYVa0ag70hxlbvjTlhyLicF3SuuG0BVuycs/GrFGi7gt/8a /es/languages/ruby.min.js
+sha384-LZ+YGF0Xve9sHzC9G37Kc14gDC6lfDpny2hggVJVfHb+OsTEXgMGLmAWUJzi4YRC /es/languages/rust.js
+sha384-/ktfWRgwL+kZAZeeXDl9mwkD/3atjwjkzLCCoSHtME7MzP87wMhUmNUZ83AoqYx2 /es/languages/rust.min.js
+sha384-VYwyP5ddOUunx1AGpbtE38OKY2PbjW9kk6X6622tvqprRJk6W8/tgMvI7MqaOZZw /es/languages/shell.js
+sha384-gRgqaIgHrAR1qlo866rkV1AUahqopv0dnpFFLAC4X3jYTDagRCTxQBTMFGV1+x1U /es/languages/shell.min.js
+sha384-bwdcw6SBKNd1TN+cPh9Q2UYBkIaOMQcCrdFKtCgfxfvmr1m4XgMDwi/euMlP7qqK /es/languages/twig.js
+sha384-PEMVkXQ9Mi3tt5Jjr17Xob3ABkIXSzTpFeN4Nl4VXwAWVM9vVFIjBbDzci0pZxFu /es/languages/twig.min.js
+sha384-BcyijKQAe0oJGoEBf0y/+dTJjKiy4bIAVdjreJw+MiOkPgCEjM/2FY2+W7K6tcEZ /es/languages/typescript.js
+sha384-Mfjt0R07QBpLXhGWeCetLw7s2mTQSoXmcyYnfsSNq4V4YG3FwayBjxod9MxjSB1x /es/languages/typescript.min.js
+sha384-TOvJ6ng9+2cEdYIo8UmcklrWBDxDmcyIc8eZ9tntvTcornli0usS+D1YJKmhMdU5 /es/languages/wasm.js
+sha384-tu9x6stUNSb4pXeVRKavZtTp8ha5aQOjCp464ykdPSuI1BMHmN/07U/iqeaoKLgE /es/languages/wasm.min.js
+sha384-40MP6/ECSjYaTAIf+/ibE2FPeFPQ53WbASndXxMOcXiQtgLbGXUStZVuPSngp7OD /es/languages/yaml.js
+sha384-vXmhozexi2dHQBoniIEbWI5ZqDxyVfUs96BUGpqjWL1aberSp9pyxbvK8WCNASGB /es/languages/yaml.min.js
+sha384-B7brENEiPAVyc8TUQbr3AR5Omi+knfZM+/EOo3TNSuEm5wa7pAZjccc1QrO8Y1bw /languages/awk.js
+sha384-eFizm8+WBkIU2d3kalqH2vV0pDtyQ1xPXQyCROjwwsryMMpzIMQgw0CSz+6AUssT /languages/awk.min.js
+sha384-4SbTAv3AX2fuPCpSv6HW3p07YgA7hFfcwG2zJHtYv0ATIt1juD3IXj2NSYwTeIpm /languages/bash.js
+sha384-83HvQQdGTWqnRLmgm19NjCb1+/awKJGytUX9sm3HJb2ddZ9Fs1Bst2bZogFjt9rr /languages/bash.min.js
+sha384-h6xPJgkyvp13tIs697wZHjCH20tW1aJOrvnAKiZZiATSWZp0lyLB4bAdsEhWUSze /languages/css.js
+sha384-+MO3D3y/aZzZq7QMAAA5KiuAcqBZivJHFmVUXfwdBoLxEXeGTeQGsNMll4fpnegg /languages/css.min.js
+sha384-ptbaKMqucgUUAhyaQfodHtSDpTA0AAoyGZZqos59ECIdi1qKRnUZcLOxMkZaxkul /languages/diff.js
+sha384-IZ99gU0P2i3O8itOlz4exVdl6lGFAgj7zq4hgyoe29bt1KyJykBSCxdH8ubn3DSk /languages/diff.min.js
+sha384-gfyiMmAn2+1KPBU6zgf5/GuxwAS1MG2sXO2QNIa1b8gWqS+ZAEGASFZUv2DTTr0I /languages/django.js
+sha384-E8a05vTFeTlJrGsYy6uvHSN7YyYtYVDfuTB0NYKryrTqkKAh0Kljndtou/5x9KxE /languages/django.min.js
+sha384-KgZWfCUcAWOSNTSNOBUrbGToPbSNE30TSimcL9oKDQ35EApOQoCYU4o2ayix5Ohe /languages/dockerfile.js
+sha384-jg4vR4ePpACdBVLAe+31BrI3MW4sfv1AS62HlXRXmQWk2q98yJqKR5VxHzuABw8X /languages/dockerfile.min.js
+sha384-jW5wYyB1JRMwQN+nnhg6mFTc68o3VaAel3q/DaK+PtEFf1IerlzTM8DEZ5yfdO01 /languages/dust.js
+sha384-yF7iAW+5SyekbVk9JwdcD9FvBYGbwXM9+uNjWDiZwXY3K3sQIweb00ODpskdmvoG /languages/dust.min.js
+sha384-X3X5mf91CrWWGZ9b3+VLi7Qm5aWxDv2NQDRoVls8Mp5weWmncrpxblLBZ4dNp0QH /languages/erb.js
+sha384-gEX03lFlUpoA8rfkmZ2UaKi2820eK1l0gtckxIGjq6Czr2uCyyEfekMrSoFwej+C /languages/erb.min.js
+sha384-B9Y0sXbhPrwdlpzfeFn4NkyJrhYEUFUCTMrEVRu+d2/3aJ/4ZOjFPJRZFnJdaQJm /languages/go.js
+sha384-Mtb4EH3R9NMDME1sPQALOYR8KGqwrXAtmc6XGxDd0XaXB23irPKsuET0JjZt5utI /languages/go.min.js
+sha384-5SNMIKu96tFhXcQ+lbTnyJN+IAJrnl6zsOQHlIAlMnKnyMRPcAkTNapBnGzfkJDw /languages/haml.js
+sha384-uQS8ZRxc1TFIVag12uukmzjpuxnV7ATxgtJ9AQ4V2bcFtNVQK0mpSh3oIjLcvipv /languages/haml.min.js
+sha384-nvXZfYfyJ3ss6utjLlGTuEcrLU7KoKUzFqjYH+rPWK5/WvEJPPkLd/AQY7CDJQL0 /languages/handlebars.js
+sha384-B7PNh5MCEV6Mz/dVdekDqHupFqAlPHt9qknPa+BHdOlUd95jeTW7QByrAalohboI /languages/handlebars.min.js
+sha384-cZ2d3Mo/jmTF9r2kHWcHmA8hehxX8N44UN6LSkEhaCRe6t8e9ntd5JEuafywm0aw /languages/java.js
+sha384-8mc5ynnm3AlnXn8P3ccSqVAaZIDoijPM08/Hp4DABy6GMy7EHCQFwiIUoGAaGJiO /languages/java.min.js
+sha384-p/utwvqrRVOLlz0BjJ0BCGCb2liTDipfz47/QmGXz9hoPIjCKYEgmYUC30VmGgZy /languages/javascript.js
+sha384-L/XmDiyusXomLRGcRmcBpPlboRFjpQNV747OJvg+sEOpgGYvUsNwcC4JLNQ2dI6O /languages/javascript.min.js
+sha384-psmmPlbfEWGyvRapexDqkVTgNz7Y1xvlGdLNWQSafI4GFQYFDXPZxVXH1laU4n6l /languages/json.js
+sha384-Bb6DhE3tUpBROwypL78TbhRUs9QbCt2GxcxVSYglt2l3MefrYkm4CfwjfWhRfQaX /languages/json.min.js
+sha384-gguYkq0KYi453IxkmDF3CbsqtFZwRw812Hoy9pijruZBUVVQzJw8MbWZJa+0G/f5 /languages/leaf.js
+sha384-4g0nL2h6+jF1QzsdR/uAFRuswDrXVI5SQaKq0Ig06T820naSMaIFWtWb9gs4/RB+ /languages/leaf.min.js
+sha384-N16TmpAW2Qx3T6s3/C0f0jweUUSh69YsJ1+AnOsAePpjmmydXF/mjeY0MZEF/cPn /languages/lua.js
+sha384-WES4Ky9nlehN2gBM6oY3/98hVtWF5PZnBO+7jK8ZVKFo+QR32zhfuRK+Mv9jQsOK /languages/lua.min.js
+sha384-Z4QQuz3ChYj9P02v2CDc+Y0OAn3iWXtJnyNd0Q6QqW4GV28viT3zcS9tYSmb9x1L /languages/makefile.js
+sha384-pYbMiHWycMKEfJaSEsquFRDTjCY7QHvQN0FIfDK0lVMd9DPJuOA7Kq5wZGecvYwM /languages/makefile.min.js
+sha384-TVvUXbmPgdS59xZSFUeyNQ1vUkeCbBpuMj3qlzdEwdQhoO5F/WNdI94UEw8g7Enp /languages/markdown.js
+sha384-sFh+6oaRBb6kdaMLf8x7qeH7NTvm2u1Ta6PtI0S8hoA+bP7UtHCyKFzaI1JBXwhT /languages/markdown.min.js
+sha384-kiNTmJ7sUzNa0fWdrmrQG6CDla+qKanV1sWUwTrektTbSt0RYzgGuaC2CtrpLrnp /languages/mojolicious.js
+sha384-iq3FlJUEnFxl1esoj6R7yvUpe4xwB8SRMskdl49eoywRd5vxOTDuiVdb4L+X3LyM /languages/mojolicious.min.js
+sha384-mpp8yrmj/LTmAFkMfJVZ0aCftZXtTdfPsBFcF3x3z4ykj/bPyqgHl9I72PfUpXRz /languages/parser3.js
+sha384-SIQiLYyI1nDqsAsAbw/Jws1FZPmWmAyhR1eu3MCDZ3NahqRoelEK14C6q6j1Kign /languages/parser3.min.js
+sha384-WNah6F2QDUbmrNCi0fSEyKJbSb01S1ijnoiwbDnegW7dm2Cz/H1CiH1HhWlUvj01 /languages/python.js
+sha384-YDj7s2Wf0QEwarV3OB8lvoNJJCH032vOLMDo2HDrYiEpQ+QmKN+e++x3hElX5S+w /languages/python.min.js
+sha384-nHCt5/kJd7LUp6BbVLNuUH0zziFVRS2Qqj9whqRpVpgzybI61OZlKQRPv4evHrJO /languages/ruby.js
+sha384-LOFdRHZ5u+oZg5Wh8DpkiJQR/w8egcUhJJoo95XVQ846DEwuRxGUujx+tQKyqXme /languages/ruby.min.js
+sha384-rCXn7K5j/lD2PrSex2XCqyLKap2Ibnsls0uQCx4ZaezI1FJ5RYvoWcsAl/v8SKlE /languages/rust.js
+sha384-VTNxHMz2AmpHxzSm8SvRI0As5+wID2j2XJBFtWTic2iEK8WbXgR1fymVQS9S2DvY /languages/rust.min.js
+sha384-KYOeDvyFo8fJObDV1L1aoPnfs6XG68LL6j3INM7McXyRYtBZF7DdUsNjK25dtxKo /languages/shell.js
+sha384-olAuUjfRvTi/iEH4RXRpaq/G1iJGizn7OefkyJLQYuqNhh1xAV5dnUrkH/LlPd9j /languages/shell.min.js
+sha384-/hnpdZfdi8MEHBYn7ZqWrgiNsAMlBh5hruT/l9qD/wFozJgEBn+MSiZVNkpAzNiM /languages/twig.js
+sha384-XlDRKuo3Ea9pIqT0CUrf4Vp4ZN/AItGl/aUiL/4AgHSC2N7xJI1commJxYZo0I1T /languages/twig.min.js
+sha384-4q0Mj1AHSvVdgi6nXDGdkiHZQcme/PcCE+MvwCvnAIZSjhJfk3UpjJU2nn2eImWz /languages/typescript.js
+sha384-rfwxAwuWzb2XdSU7HN3IhrSyCq96Nj4p1ZYPCNAGbqtnPsaWl8d5eSypxPbW6alT /languages/typescript.min.js
+sha384-7+RHZQJsgiohPfYs4xGnVLR6bKm1cnz7rvB7mXEb2btmiWhSNq1cuTJsQWK9Ut8w /languages/wasm.js
+sha384-TTxGby06lDIEB1Y6l2/Hd2VJbewWQSCESXUcDWC24gJN0IiptruI6DE1l5+w4Qzh /languages/wasm.min.js
+sha384-3KIoWvJ5JGRH35WAkzreEebY8sug+ZWeaOPS2r1KIfznEU9TtPFpxX6sIgtaiA9G /languages/yaml.js
+sha384-bMkvdnz+wPu1ro0fqO3BaDWztc7RzSvw05MQFP6bhJKDcwpkrFYTfTFI9ndkP11l /languages/yaml.min.js
+sha384-B+T9GPppwHm2gU9CZI5Ik2NtovJvY4eDqyuYj66JDFbCLpwh9cn/o6+XihfpD3Hz /highlight.js
+sha384-7kLLYTolgujUR3lpbukBtqyITaeKdINx+lrX6592SXGdDdqjrEq9P+Nhr7OMfY5U /highlight.min.js
+</code></pre>
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+            
+            <p class="text-center text-muted">© 2024 BigG01 - containerize.ch</p>
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

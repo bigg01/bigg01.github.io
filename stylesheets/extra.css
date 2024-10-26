@@ -1,0 +1,34 @@
+/* docs/stylesheets/extra.css */
+/* body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+*/
+
+.terminal-mkdocs-main-grid {
+    display: grid;
+    /* 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    */
+    height: 100%;
+    width: 100%; 
+} 
+
+/* #terminal-mkdocs-main-content {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+} */
