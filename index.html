@@ -697,7 +697,8 @@
     <ul>
         <li><a href="#explore-the-world-of-computer-science">explore the world of computer science....</a></li>
         <li><a href="#about-me">about me</a></li>
-        
+        <li><a href="#podinfo">Podinfo</a></li>
+        <li><a href="#embedding-html-podinfo-from-homelab-kubernetes">embedding HTML PODINFO from Homelab kubernetes</a></li><li><a href="#api-call-example">API Call Example</a></li>
     </ul>
 </nav>
 </aside>
@@ -738,6 +739,35 @@ alias guggi=&quot;guo&quot;
 alias MrG=&quot;guo&quot;
 alias DrG=&quot;guo&quot;
 </code></pre>
+<h1 id="podinfo">Podinfo<a class="headerlink" href="#podinfo" title="Anchor link to this section for reference">#</a></h1>
+<h2 id="embedding-html-podinfo-from-homelab-kubernetes">embedding HTML PODINFO from Homelab kubernetes<a class="headerlink" href="#embedding-html-podinfo-from-homelab-kubernetes" title="Anchor link to this section for reference">#</a></h2>
+<p><code>https://podinfo.guggenbuehl.net</code></p>
+<iframe id="podinfoIframe" src="https://podinfo.guggenbuehl.net/" width="800" height="600"></iframe>
+
+<h2 id="api-call-example">API Call Example<a class="headerlink" href="#api-call-example" title="Anchor link to this section for reference">#</a></h2>
+<!-- <button id="apiButton">Get Version</button> -->
+
+<p><button id="panicButton">Panic</button></p>
+<p id="apiResult"></p>
+
+<script>
+document.getElementById('apiButton').addEventListener('click', function() {
+    fetch('https://podinfo.guggenbuehl.net/version')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('apiResult').innerText = 'Version: ' + data.version;
+        })
+        .catch(error => {
+            document.getElementById('apiResult').innerText = 'Error: ' + error;
+        });
+});
+
+document.getElementById('panicButton').addEventListener('click', function() {
+    var iframe = document.getElementById('podinfoIframe');
+    iframe.src = iframe.src; // Refresh the iframe by resetting its src attribute
+    document.getElementById('apiResult').innerText = 'Killed POD - Iframe refreshed!';
+});
+</script>
 </section>
 
             </main>
