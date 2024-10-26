@@ -1,0 +1,89 @@
+
+site_name: containerize.ch
+site_description: "Personal blog about cloud, container, linux, programming and homelab"
+site_author: BigG01
+copyright: © 2024 BigG01 - containerize.ch
+
+theme:
+  name: terminal
+  palette: dark_green
+  features:
+    - footer.prev_next
+    - navigation.side.indexes
+      - revision.date
+    - revision.history
+    - style.links.underline.hide
+
+repo_url: https://github.com/bigg01/bigg01.github.io/
+edit_uri: blob/main/website/docs/
+
+
+plugins:
+  - search
+  - termynal
+  - drawio
+  - mermaid2
+  - snippet:
+      base_path: docs
+
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.min.css
+  - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js
+  - javascripts/highlight-init.js
+
+markdown_extensions:
+  # Python Markdown  
+  - attr_list
+  - def_list
+  - footnotes
+  # - md_in_html
+  - meta
+  - toc:
+      permalink: "#"
+      permalink_title: Anchor link to this section for reference
+
+  # PyMdown Extensions
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: 
+        - docs
+  # - codehilite:
+  #     guess_lang: true
+  #     linenums: false
+
+nav:
+  - Home: index.md
+  - Cloud:
+    - Index: cloud.md      
+    - Azure: azure.md
+    - GCP: gcp.md
+    - AWS: aws.md
+      
+  - Container: container.md
+  - Kubernetes:
+    - OpenShift: openshift.md
+    - AKS: aks.md
+    - K3s: k3s.md
+    - python: python-kubernetes.md
+  - Linux: 
+     Index: linux.md
+     Gnome-Shell: gnome-shell.md
+     WSL: wsl.md
+  - Programming:
+      Index: programming.md
+      Python: python.md
+      Golang: golang.md
+  - AI:
+      CrewAI: crewai.md
+  - Homelab: home-lab.md
+  - About: about.md
+  - Example: example.md

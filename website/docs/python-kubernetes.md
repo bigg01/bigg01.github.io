@@ -1,0 +1,1 @@
+{{ snippet('https://github.com/bigg01/kubernetes-python-image-exporter', 'README.md', '# kubernetes-python-image-exporter') }}
